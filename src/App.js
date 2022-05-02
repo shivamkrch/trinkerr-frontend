@@ -32,6 +32,7 @@ class App extends Component {
 
     searchStocks = async (e) => {
         const key = e.target.value;
+        if (key.length === 0) return;
         const res = await fetch(`${BASE_URL}/api/data?search_string=${key}`, {
             headers: {
                 "user-access-token": this.state.token
